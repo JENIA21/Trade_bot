@@ -1,6 +1,8 @@
 package com.company.module;
 
-
+/**
+ * Ответные команды
+ */
 public class Visualizer {
 
     public static final String TRADE_EXIT = "\nДля выхода:/exit";

@@ -1,5 +1,8 @@
 package com.company.telegram.commands;
 
+/**
+ * Команды
+ */
 public enum Commands {
 
 

@@ -12,7 +12,11 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.sql.SQLException;
 
+/**
+ * Работа с телеграмом
+ */
 public class TelegramBot extends TelegramLongPollingBot {
 
     private final IDataSource dataSource;
@@ -37,21 +41,23 @@ public class TelegramBot extends TelegramLongPollingBot {
         }
     }
 
-    public void onUpdateReceived(Update update) {//метод для приема сообщений
+    public void onUpdateReceived(Update update) {
         if (update.hasMessage()) {
             Message message = update.getMessage();
             if (message.hasText()) {
-                User user;
-                if (dataSource.getUser(message.getChatId().toString()) == null) {
+                User user = dataSource.getUser(message.getChatId().toString());
+                if (user == null) {
                     user = new User(message.getChatId().toString(), 0, CommandStates.GREETING.addCode, 0, CommandStates.GREETING_EX.addCode);
-                    dataSource.saveUser(user);
-                } else {
-                    user = dataSource.getUser(message.getChatId().toString());
+                    try {
+                        dataSource.saveUser(user);
+                    } catch (Exception e) {
+                        sendMsg(message, "Произошла ошибка при сохранении, попробуйте еще раз");
+                        return;
+                    }
                 }
                 String command = message.getText();
                 sendMsg(message, stateMachine.doCommand(command, user));
                 dataSource.saveUser(user);
-
             }
         }
     }

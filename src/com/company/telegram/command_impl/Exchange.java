@@ -3,6 +3,9 @@ package com.company.telegram.command_impl;
 import com.company.module.User;
 import com.company.telegram.commands.Commands;
 
+/**
+ * Работа с командами обмена
+ */
 public abstract class Exchange implements ICommand {
 
     @Override

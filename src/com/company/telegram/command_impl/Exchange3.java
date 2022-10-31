@@ -6,6 +6,9 @@ import com.company.telegram.commands.Rate;
 
 import static java.lang.Integer.parseInt;
 
+/**
+ * Обмен на рубли
+ */
 public class Exchange3 extends Exchange {
     @Override
     CommandResponse doBotLogic(User user, String data) {

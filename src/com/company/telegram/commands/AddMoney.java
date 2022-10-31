@@ -4,7 +4,9 @@ import com.company.module.User;
 
 import static com.company.telegram.command_impl.CommandStates.*;
 
-
+/**
+ * Логика добавлеия денег в кошелек
+ */
 public class AddMoney implements ICommand {
 
 

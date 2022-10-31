@@ -5,6 +5,9 @@ import com.company.telegram.commands.Rate;
 
 import java.util.Arrays;
 
+/**
+ * Пользователь
+ */
 public class User {
 
     private String chatId;

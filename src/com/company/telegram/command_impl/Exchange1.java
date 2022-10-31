@@ -3,6 +3,9 @@ package com.company.telegram.command_impl;
 import com.company.module.User;
 import com.company.module.Visualizer;
 
+/**
+ * Ответ на выбор курса
+ */
 public class Exchange1 extends Exchange {
 
     @Override

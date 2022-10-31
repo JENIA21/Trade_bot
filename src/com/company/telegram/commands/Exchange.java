@@ -4,6 +4,9 @@ import com.company.module.User;
 
 import static com.company.telegram.command_impl.CommandStates.*;
 
+/**
+ * Логика обмена валюты
+ */
 public class Exchange implements ICommand {
 
     @Override

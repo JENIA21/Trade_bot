@@ -1,5 +1,8 @@
 package com.company.telegram.command_impl;
 
+/**
+ * Ответ команд
+ */
 public class CommandResponse {
 
     private String response;

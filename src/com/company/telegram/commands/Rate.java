@@ -8,6 +8,9 @@ import java.io.IOException;
 import static java.lang.Double.parseDouble;
 import static java.lang.Integer.parseInt;
 
+/**
+ * Получение курса
+ */
 public class Rate {
 
     Document documentDollar;

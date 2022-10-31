@@ -5,7 +5,9 @@ import com.company.module.Visualizer;
 
 import java.sql.SQLException;
 
-
+/**
+ * Ответ на команду /start
+ */
 public class MenuStart implements ICommand {
 
     @Override

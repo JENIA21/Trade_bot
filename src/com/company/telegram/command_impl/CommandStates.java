@@ -1,6 +1,8 @@
 package com.company.telegram.command_impl;
 
-
+/**
+ * Команды
+ */
 public enum CommandStates {
 
     GREETING(0, new AddMoney0()),

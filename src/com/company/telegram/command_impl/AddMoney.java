@@ -4,7 +4,9 @@ package com.company.telegram.command_impl;
 import com.company.module.User;
 import com.company.telegram.commands.Commands;
 
-
+/**
+ * Работа с командами доьавления
+ */
 public abstract class AddMoney implements ICommand {
 
 

@@ -3,7 +3,9 @@ package com.company.telegram.commands;
 import com.company.module.User;
 import com.company.module.Visualizer;
 
-
+/**
+ * Ответ на просмотр своего банка
+ */
 public class GetBank implements ICommand {
 
     @Override

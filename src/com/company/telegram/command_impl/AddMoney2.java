@@ -6,7 +6,9 @@ import com.company.module.Visualizer;
 
 import static java.lang.Integer.parseInt;
 
-
+/**
+ * Добавление рублей
+ */
 public class AddMoney2 extends AddMoney {
 
 

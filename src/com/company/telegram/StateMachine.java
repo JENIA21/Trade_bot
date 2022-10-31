@@ -7,6 +7,9 @@ import com.company.telegram.command_impl.CommandStates;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Работа с командами
+ */
 public class StateMachine {
 
     static Map<String, ICommand> menuCommand = new HashMap<>();

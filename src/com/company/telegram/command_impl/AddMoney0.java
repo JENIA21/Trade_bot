@@ -4,7 +4,9 @@ package com.company.telegram.command_impl;
 import com.company.module.User;
 import com.company.module.Visualizer;
 
-
+/**
+ * Первый ответ на команду добавления денег
+ */
 public class AddMoney0 extends AddMoney {
 
     @Override

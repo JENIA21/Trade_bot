@@ -6,7 +6,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-
+/**
+ * Соединение с БД
+ */
 public class SQLiteConnection {
 
     private static final String CONNECTION_STRING = "jdbc:sqlite:./mydatabase.db";
@@ -14,14 +16,25 @@ public class SQLiteConnection {
 
     private final Connection connection;
 
+    static {
+        try {
+            DriverManager.registerDriver(new JDBC());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
     public SQLiteConnection() throws SQLException {
-        DriverManager.registerDriver(new JDBC());
         this.connection = DriverManager.getConnection(CONNECTION_STRING);
     }
 
 
-    public Connection getConnection() {
-        return connection;
+    public Connection getConnection() throws SQLException {
+        if (connection.isValid(3)) {
+            return connection;
+        } else {
+            System.out.println("Подключение не валидно");
+            return null;
+        }
     }
 }

@@ -6,6 +6,9 @@ import com.company.module.Visualizer;
 
 import static java.lang.Integer.parseInt;
 
+/**
+ * Ответ на выбор нужного курса
+ */
 
 public class AddMoney1 extends AddMoney {
 
