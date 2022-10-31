@@ -13,10 +13,10 @@
 * `/information` - получить информацию о работе бота.
 
 # Настройки
-######Сборщик Maven - pom.xml
-######Java 15
+```Сборщик Maven - pom.xml```
+```Java 15```
 
 # Запуск
-1)Создайте БД mydatabase.db Trade_bot\mydatabase.db
-2)Добавьте token.txt с ваши телеграм токеном Trade_bot\token.txt
-3)Запускайте метод main
+* 1)Создайте БД mydatabase.db Trade_bot\mydatabase.db
+* 2)Добавьте token.txt с ваши телеграм токеном Trade_bot\token.txt
+* 3)Запускайте метод main
