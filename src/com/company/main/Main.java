@@ -16,7 +16,6 @@ import java.sql.SQLException;
 public class Main {
     static DBSource dbSource;
     public static void main(String[] args) throws Exception {
-
         ApiContextInitializer.init();
         TelegramBotsApi telegramBotsApi = new TelegramBotsApi();
         try {
@@ -30,8 +29,8 @@ public class Main {
         Runtime.getRuntime().addShutdownHook(new Thread() {
             public void run() {
                 try {
-                    dbSource.closeConnection();
-                } catch (SQLException e) {
+                    dbSource.close();
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }

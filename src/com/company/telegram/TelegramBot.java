@@ -42,6 +42,7 @@ public class TelegramBot extends TelegramLongPollingBot {
     }
 
     public void onUpdateReceived(Update update) {
+
         if (update.hasMessage()) {
             Message message = update.getMessage();
             if (message.hasText()) {
@@ -52,6 +53,11 @@ public class TelegramBot extends TelegramLongPollingBot {
                         dataSource.saveUser(user);
                     } catch (Exception e) {
                         sendMsg(message, "Произошла ошибка при сохранении, попробуйте еще раз");
+                        try {
+                            dataSource.close();
+                        } catch (Exception ex) {
+                            ex.printStackTrace();
+                        }
                         return;
                     }
                 }

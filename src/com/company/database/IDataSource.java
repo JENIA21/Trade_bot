@@ -8,7 +8,7 @@ import java.sql.SQLException;
  *
  */
 
-public interface IDataSource {
+public interface IDataSource extends AutoCloseable {
     /**
      * Сохранения user в БД
      * @param user пользователь телеграм бота
@@ -22,6 +22,5 @@ public interface IDataSource {
      */
     User getUser(String chatId);
 
-    void closeConnection() throws SQLException;
-
+    void close() throws Exception;
 }

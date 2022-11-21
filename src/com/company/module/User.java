@@ -1,23 +1,29 @@
 package com.company.module;
 
 import com.company.telegram.command_impl.CommandStates;
-import com.company.telegram.commands.Rate;
+import com.company.telegram.command_impl.ICommand;
 
 import java.util.Arrays;
+import java.util.HashMap;
 
 /**
  * Пользователь
  */
 public class User {
 
+    //уникальный id чата
     private String chatId;
 
+    //количество рублей
     private int bankRu;
 
+    //код для шага добавления валюты
     private int addCode;
 
+    //количество долларов
     private int bankUsd;
 
+    //код для шага обмена валюты
     private int exCode;
 
 
@@ -29,16 +35,16 @@ public class User {
         this.exCode = exCode;
     }
 
-    public User(String chatId, int bankRu, CommandStates addCode, int bankUsd) {
-        this.chatId = chatId;
-        this.bankRu = bankRu;
-        this.addCode = addCode.addCode;
-        this.bankUsd = bankUsd;
+
+    static HashMap<Integer, CommandStates> commands = new HashMap<Integer, CommandStates>();
+    static {
+
+        for (CommandStates command : CommandStates.values()) {
+            commands.put(command.addCode, command);
+        }
     }
-
-
     public CommandStates getExCode() {
-        return Arrays.stream(CommandStates.values()).filter((t) -> t.addCode == exCode).findFirst().get();
+        return commands.get(exCode);
     }
 
 
@@ -54,8 +60,9 @@ public class User {
         return bankUsd;
     }
 
+
     public CommandStates getAddCode() {
-        return Arrays.stream(CommandStates.values()).filter((t) -> t.addCode == addCode).findFirst().get();
+        return commands.get(addCode);
     }
 
     public void setAddCode(CommandStates addCode) {

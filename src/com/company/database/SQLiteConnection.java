@@ -11,10 +11,10 @@ import java.sql.SQLException;
  */
 public class SQLiteConnection {
 
-    private static final String CONNECTION_STRING = "jdbc:sqlite:./mydatabase.db";
+    private static final String CONNECTION_STRING = "jdbc:sqlite:./mydatabase.db";;
 
 
-    private final Connection connection;
+    private Connection connection;
 
     static {
         try {
@@ -24,17 +24,24 @@ public class SQLiteConnection {
         }
     }
 
-    public SQLiteConnection() throws SQLException {
+    private void setConnection() throws SQLException {
         this.connection = DriverManager.getConnection(CONNECTION_STRING);
     }
 
 
+    public SQLiteConnection() throws SQLException {
+        setConnection();
+    }
+
+
     public Connection getConnection() throws SQLException {
+
         if (connection.isValid(3)) {
             return connection;
         } else {
-            System.out.println("Подключение не валидно");
-            return null;
+            System.out.println("Подключение не валидно, пробуем еще раз");
+            setConnection();
+            return this.connection;
         }
     }
 }

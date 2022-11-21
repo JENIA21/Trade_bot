@@ -1,5 +1,10 @@
 package com.company.telegram.commands;
 
+import com.company.module.User;
+
+import static com.company.telegram.command_impl.CommandStates.*;
+import static com.company.telegram.command_impl.CommandStates.GET_VALUE_USD;
+
 /**
  * Команды
  */
@@ -19,6 +24,8 @@ public enum Commands {
 
 
     public ICommand realization;
+
+
 
     Commands(String command, ICommand realization) {
         this.command = command;

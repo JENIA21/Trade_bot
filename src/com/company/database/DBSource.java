@@ -45,11 +45,12 @@ public class DBSource implements IDataSource {
                     resultSet.getInt("ex_code"));
         } catch (SQLException e) {
             e.printStackTrace();
-            return null;
         }
+        return null;
     }
 
-    public void closeConnection() throws SQLException {
+    @Override
+    public void close() throws Exception {
         sqLiteConnection.getConnection().close();
     }
 }

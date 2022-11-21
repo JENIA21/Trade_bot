@@ -1,5 +1,7 @@
 package com.company.telegram.command_impl;
 
+import com.company.module.User;
+
 /**
  * Команды
  */
@@ -14,7 +16,56 @@ public enum CommandStates {
     END_EX_RU(6, new Exchange2()),
     END_EX_USD(7, new Exchange3());
 
-    public ICommand realisation;
+    private ICommand realisation;
+    public static String AddMoney(String data, User user) {
+
+        switch (user.getAddCode()) {
+            case GREETING -> {
+
+                return GREETING.realisation.execute(data, user);
+
+            }
+            case AMOUNT_CURRENCY -> {
+
+                return AMOUNT_CURRENCY.realisation.execute(data, user);
+            }
+            case GET_VALUE_RU -> {
+
+                return GET_VALUE_RU.realisation.execute(data, user);
+            }
+            case GET_VALUE_USD -> {
+
+                return GET_VALUE_USD.realisation.execute(data, user);
+            }
+        }
+        return "!";
+    }
+
+    public static String Exchange(String data, User user) {
+
+        switch (user.getExCode()) {
+            case GREETING_EX -> {
+
+                return GREETING_EX.realisation.execute(data, user);
+
+            }
+            case DATA_EX -> {
+
+                return DATA_EX.realisation.execute(data, user);
+            }
+            case END_EX_RU -> {
+
+                return END_EX_RU.realisation.execute(data, user);
+            }
+            case END_EX_USD -> {
+
+                return END_EX_USD.realisation.execute(data, user);
+            }
+        }
+
+        return "!";
+
+    }
 
     public int addCode;
 
